@@ -1,6 +1,5 @@
 import streamlit as st
 import random
-import json
 import firebase_admin
 from firebase_admin import credentials, firestore
 
@@ -15,9 +14,10 @@ PARTICIPANTS = [
 
 # ---------- Firebase Init ----------
 if not firebase_admin._apps:
-    cred = credentials.Certificate(json.loads(st.secrets["firebase"]))
+    cred = credentials.Certificate(dict(st.secrets["firebase"]))
     firebase_admin.initialize_app(cred)
 db = firestore.client()
+
 
 # ---------- SESSION STATE ----------
 if "page" not in st.session_state:

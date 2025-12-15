@@ -16,8 +16,8 @@ env/
 *.env
 
 # Streamlit secrets / config
+.streamlit/secrets.toml
 .secrets.toml
-secrets.json
 
 # Firebase service account keys
 *.json
